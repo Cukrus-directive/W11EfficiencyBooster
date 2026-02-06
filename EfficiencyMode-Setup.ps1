@@ -890,7 +890,7 @@ function Register-EfficiencyTask {
     #>
 
     $taskName = "EfficiencyModeEnforcer"
-    $taskDescription = "Applies Windows 11 Efficiency Mode (EcoQoS) to configured processes every 15 minutes"
+    $taskDescription = "Applies Windows 11 Efficiency Mode (EcoQoS) to configured processes every hour"
 
     # Build XML for task scheduler
     $xmlContent = @"
@@ -903,7 +903,7 @@ function Register-EfficiencyTask {
   <Triggers>
     <LogonTrigger>
       <Repetition>
-        <Interval>PT15M</Interval>
+        <Interval>PT1H</Interval>
         <StopAtDurationEnd>false</StopAtDurationEnd>
       </Repetition>
       <Enabled>true</Enabled>
@@ -1065,7 +1065,7 @@ if (Deploy-EnforcerScript) {
         Write-Header "=============================================="
         Write-Info ""
         Write-Info "Scheduled task 'EfficiencyModeEnforcer' is now running."
-        Write-Info "It will apply Efficiency Mode every 15 minutes."
+        Write-Info "It will apply Efficiency Mode every hour."
         Write-Info ""
         Write-Info "Configuration:"
         Write-Info "  Keywords: $script:KeywordsFile"

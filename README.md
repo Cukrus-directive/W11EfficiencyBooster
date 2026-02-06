@@ -20,7 +20,7 @@ Applies Efficiency Mode to specified processes automatically. This is to leverag
 |------|---------|
 | `Run-EfficiencyMode-Setup.bat` | Launcher with auto-elevation |
 | `EfficiencyMode-Setup.ps1` | Interactive setup and configuration |
-| `EfficiencyMode-Enforcer.ps1` | Scheduled task script (runs every 15 min) |
+| `EfficiencyMode-Enforcer.ps1` | Scheduled task script (runs every hour) |
 
 ## Config
 
@@ -35,4 +35,4 @@ Matches running processes against your keywords and applies:
 - **Idle priority** - reduces CPU scheduling priority
 - **EcoQoS** - enables Windows power throttling
 
-The scheduled task re-applies every 15 minutes to catch new processes.
+The scheduled task re-applies every hour to catch new processes.
