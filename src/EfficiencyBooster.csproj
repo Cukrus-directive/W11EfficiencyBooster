@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ApplicationIcon>Resources\tray-icon.ico</ApplicationIcon>
+
+    <!-- Single-file publishing -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+
+    <!-- Trimming for smaller output -->
+    <PublishTrimmed>false</PublishTrimmed>
+
+    <!-- No PDB files in release -->
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+
+    <!-- Assembly info -->
+    <AssemblyName>EfficiencyBooster</AssemblyName>
+    <RootNamespace>EfficiencyBooster</RootNamespace>
+    <Version>1.0.0</Version>
+    <Company>W11EfficiencyBooster</Company>
+    <Product>Efficiency Booster</Product>
+    <Description>Windows 11 Efficiency Mode system tray application</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\tray-icon.ico" />
+  </ItemGroup>
+
+</Project>

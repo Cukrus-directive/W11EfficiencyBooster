@@ -1,0 +1,19 @@
+# Build outputs
+src/bin/
+src/obj/
+publish/
+misc/
+*.exe
+
+# Local files
+keywords.txt
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+.DS_Store
