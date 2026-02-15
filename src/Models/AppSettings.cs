@@ -11,6 +11,7 @@ public class AppSettings
     public DateTime? LastEnforcementRun { get; set; }
     public int LastRunProcessCount { get; set; }
     public bool EnforcementEnabled { get; set; } = true;
+    public bool RunAsAdmin { get; set; } = false;
 
     private static readonly JsonSerializerOptions JsonOptions = new()
     {

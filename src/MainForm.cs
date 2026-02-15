@@ -16,6 +16,7 @@ public partial class MainForm : Form
 
     private ToolStripMenuItem _statusItem = null!;
     private ToolStripMenuItem _startWithWindowsItem = null!;
+    private ToolStripMenuItem _runAsAdminItem = null!;
     private ToolStripMenuItem _enabledItem = null!;
 
     public MainForm()
@@ -88,6 +89,13 @@ public partial class MainForm : Form
             CheckOnClick = false
         };
         menu.Items.Add(_startWithWindowsItem);
+
+        _runAsAdminItem = new ToolStripMenuItem("Run as Admin (Full Coverage)", null, (s, e) => ToggleRunAsAdmin())
+        {
+            Checked = _settings.RunAsAdmin,
+            CheckOnClick = false
+        };
+        menu.Items.Add(_runAsAdminItem);
 
         menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add(new ToolStripMenuItem("Exit", null, (s, e) => ExitApplication()));
@@ -167,6 +175,30 @@ public partial class MainForm : Form
         _settings.StartWithWindows = !_settings.StartWithWindows;
         _startWithWindowsItem.Checked = _settings.StartWithWindows;
         _log.Info($"Start with Windows: {_settings.StartWithWindows}");
+    }
+
+    private void ToggleRunAsAdmin()
+    {
+        var newValue = !_settings.RunAsAdmin;
+        _settings.RunAsAdmin = newValue;
+
+        // RunAsAdmin setter returns early (doesn't change value) if UAC was declined
+        _runAsAdminItem.Checked = _settings.RunAsAdmin;
+        _startWithWindowsItem.Checked = _settings.StartWithWindows;
+
+        if (_settings.RunAsAdmin)
+        {
+            _log.Info("Run as Admin enabled — scheduled task created");
+            if (!SettingsService.IsRunningElevated())
+            {
+                _trayIcon.ShowBalloonTip(5000, "Admin Mode Enabled",
+                    "Takes effect on next login. Restart the app for immediate effect.", ToolTipIcon.Info);
+            }
+        }
+        else
+        {
+            _log.Info("Run as Admin disabled — scheduled task removed");
+        }
     }
 
     private void ExitApplication()

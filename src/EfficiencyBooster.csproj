@@ -26,7 +26,7 @@
     <!-- Assembly info -->
     <AssemblyName>EfficiencyBooster</AssemblyName>
     <RootNamespace>EfficiencyBooster</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Company>W11EfficiencyBooster</Company>
     <Product>Efficiency Booster</Product>
     <Description>Windows 11 Efficiency Mode system tray application</Description>
