@@ -39,7 +39,7 @@ https://devblogs.microsoft.com/performance-diagnostics/reduce-process-interferen
 
 ## Download
 
-Get the latest `EfficiencyBooster.exe` from [Releases](../../releases).
+Get the latest `EfficiencyBooster.exe` from [Releases](../../releases). Self-contained — no .NET runtime needed.
 
 ## Requirements
 
@@ -85,15 +85,6 @@ The background timer re-applies every hour to catch newly launched processes.
 
 Requires [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
-```batch
-# Build
-build.bat
-
-# Publish single-file .exe
-publish.bat
-```
-
-Output: `publish/EfficiencyBooster.exe`
 
 ## Configuration
 
@@ -101,7 +92,7 @@ Settings stored in `%APPDATA%\EfficiencyBooster\settings.json`:
 
 ```json
 {
-  "keywords": ["chrome", "slack", "teams"],
+  "keywords": ["steam", "asus", "searchindex"],
   "startWithWindows": true,
   "intervalMinutes": 60,
   "enforcementEnabled": true
